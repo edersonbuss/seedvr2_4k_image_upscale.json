@@ -1,0 +1,100 @@
+{
+  "input": {
+    "workflow": {
+      "10": {
+        "inputs": {
+          "value": 42,
+          "image": [
+            "17",
+            0
+          ],
+          "dit": [
+            "14",
+            0
+          ],
+          "vae": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "SeedVR2VideoUpscaler",
+        "_meta": {
+          "title": "SeedVR2VideoUpscaler"
+        }
+      },
+      "13": {
+        "inputs": {
+          "filename": "ema_vae_fp16.safetensors",
+          "torch_compile_args": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "SeedVR2LoadVAEModel",
+        "_meta": {
+          "title": "SeedVR2LoadVAEModel"
+        }
+      },
+      "14": {
+        "inputs": {
+          "filename": "seedvr2_ema_7b_sharp_fp16.safetensors",
+          "torch_compile_args": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "SeedVR2LoadDiTModel",
+        "_meta": {
+          "title": "SeedVR2LoadDiTModel"
+        }
+      },
+      "15": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "10",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "16": {
+        "inputs": {
+          "image": "Sadhu_320x478.png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "17": {
+        "inputs": {
+          "image": [
+            "16",
+            0
+          ],
+          "alpha": [
+            "16",
+            1
+          ]
+        },
+        "class_type": "JoinImageWithAlpha",
+        "_meta": {
+          "title": "JoinImageWithAlpha"
+        }
+      },
+      "19": {
+        "inputs": {
+          "text": "inductor"
+        },
+        "class_type": "SeedVR2TorchCompileSettings",
+        "_meta": {
+          "title": "SeedVR2TorchCompileSettings"
+        }
+      }
+    }
+  }
+}
